@@ -1,5 +1,14 @@
 # Koala
 
+Backend for ImmersiveAR project.
+Contains SQL tables for persistent data.
+Client retrieves this data when starting a use case.
+
+Supports post/get in JSON format
+URL: /sql/cubes
+
+## Phoenix info
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -7,9 +16,7 @@ To start your Phoenix server:
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+Now you can visit [`localhost:4080`](http://localhost:4080) from your browser.
 
 ## Learn more
 

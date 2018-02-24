@@ -13,7 +13,7 @@ defmodule KoalaWeb.SqlController do
       # ID as a parameter
       # TODO need to handle ID
       # if it's present we should only retrieve one row from the table
-      table = get_cube_table()
+      table = get_cubes()
 
       if (params["id"] != nil) do
          id = elem(Integer.parse(params["id"]), 0)
@@ -60,7 +60,7 @@ defmodule KoalaWeb.SqlController do
 
       insertQ = """
          insert into cubes
-         values ($1, $2, $3, $4)
+         values ($1, $2, $3)
       """
 
       res = Ecto.Adapters.SQL.query!(Koala.Repo, nextIDq)
@@ -70,7 +70,7 @@ defmodule KoalaWeb.SqlController do
 
       # Add to SQL table
       # we ignore the ID and always add a new object
-      res = Ecto.Adapters.SQL.query!(Koala.Repo, insertQ, [n_ids, cube.location, cube.model, cube.state])
+      res = Ecto.Adapters.SQL.query!(Koala.Repo, insertQ, [n_ids, cube.model_file, cube.state])
 
       conn
       |> put_status(:ok)

@@ -1,22 +1,46 @@
 <div class="jumbotron">
    <h2>SQL tables</h2>
-   <p>
-   Cubes is a location table sample for the projects.
-   </p>
    <h3>Cubes table</h3>
    <table class="sql-table">
       <tr>
       <th><u>ID</u></th>
-      <th><u>location</u></th>
       <th><u>model</u></th>
       <th><u>state</u></th>
       </tr>
-   <%= for cube <- get_cube_table() do %>
+   <%= for cube <- get_cubes() do %>
       <tr>
       <th><%= cube.id %></th>
-      <th><%= cube.location %></th>
-      <th><%= cube.model %></th>
+      <th><%= cube.model_file %></th>
       <th><%= cube.state %></th>
+      </tr>
+   <% end %>
+   </table>
+   <h3>Use Cases table</h3>
+   <table class="sql-table">
+      <tr>
+      <th><u>ID</u></th>
+      <th><u>name</u></th>
+      <th><u>script</u></th>
+      </tr>
+   <%= for case <- get_cases() do %>
+      <tr>
+      <th><%= case.id %></th>
+      <th><%= case.name %></th>
+      <th><%= case.script_file %></th>
+      </tr>
+   <% end %>
+   </table>
+   <!-- TODO this should be per use case a separate table -->
+   <h3>Cubes in Cases table</h3>
+   <table class="sql-table">
+      <tr>
+      <th><u>name</u></th>
+      <th><u>model</u></th>
+      </tr>
+   <%= for case <- get_case_cubes() do %>
+      <tr>
+      <th><%= case.name %></th>
+      <th><%= case.model_file %></th>
       </tr>
    <% end %>
    </table>
