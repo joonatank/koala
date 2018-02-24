@@ -1,0 +1,24 @@
+<div class="jumbotron">
+   <h2>SQL tables</h2>
+   <p>
+   Cubes is a location table sample for the projects.
+   </p>
+   <h3>Cubes table</h3>
+   <table class="sql-table">
+      <tr>
+      <th><u>ID</u></th>
+      <th><u>location</u></th>
+      <th><u>model</u></th>
+      <th><u>state</u></th>
+      </tr>
+   <%= for cube <- get_cube_table() do %>
+      <tr>
+      <th><%= cube.id %></th>
+      <th><%= cube.location %></th>
+      <th><%= cube.model %></th>
+      <th><%= cube.state %></th>
+      </tr>
+   <% end %>
+   </table>
+
+</div>
